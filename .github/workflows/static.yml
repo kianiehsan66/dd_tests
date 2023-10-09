@@ -22,6 +22,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  e2e_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Datadog Synthetics tests
+        uses: DataDog/synthetics-ci-github-action@v0.2.1
+        with:
+          api_key: 0f22eaf4ab86f9e045aa4abeca5f92ec
+          app_key: 751ef4938fa609433c12869eeeb8df3136034355
+          public_ids: 'eu6-ncx-5qg'
   # Single deploy job since we're just deploying
   deploy:
     environment:
